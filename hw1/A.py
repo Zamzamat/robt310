@@ -68,8 +68,8 @@ Matrix = np.zeros( (height, width, 3), dtype=np.uint8) # also fill it with Zeros
 
 Matrix[0:height//2, 0:width//2] = [255, 255, 0]    # Upper left Yellow = R + G + 0
 Matrix[0:height//2, width//2:width] = [0, 255, 0]     #Upper Right Green = 0 + G + 0
-Matrix[height//2:height, width//2:width] = [255, 0, 0] # Lower Left Red = R + 0 + 0
-    # Lower Right is already Black
+Matrix[height//2:height, 0:width//2] = [255, 0, 0] # Lower Left Red = R + 0 + 0
+    # Lower Right is already Black, There is no need to change anything in Matrix
 
 #image
 imageio.imwrite("5_Quadrants.png", Matrix)
