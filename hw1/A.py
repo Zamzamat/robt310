@@ -38,3 +38,14 @@ for x in range(width): #here we take every column
 
 #After rewriting data in Matrix, We create image:
 imageio.imwrite("2_Stripes_BW.png", Matrix)
+
+
+    ###3
+#We will reuse the same Matrix again:
+for x in range(width):
+    intensity = min(x // 2, 255)   # ramp expression
+    Matrix[:, x] = intensity       # fill column with that intensity
+
+# Save image
+imageio.imwrite("3_Ramp.png", Matrix)
+
