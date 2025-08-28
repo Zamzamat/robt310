@@ -23,7 +23,7 @@ Matrix = np.full(   (height, width), #matrix dimensions
                  dtype=np.uint8) #We use uint 8, since it is 8-bit data, range is 0, 255
 
 #And finally we a special library to create an imgae from a Matrix data
-imageio.imwrite("1_Gray_104.png", Matrix)
+imageio.imwrite("A1_Gray_104.png", Matrix)
 
 
     ### 2
@@ -37,7 +37,7 @@ for x in range(width): #here we take every column
         Matrix[:, x] = 255 #Paint column in White. 255 Max intensity in 8-bit
 
 #After rewriting data in Matrix, We create image:
-imageio.imwrite("2_Stripes_BW.png", Matrix)
+imageio.imwrite("A2_Stripes_BW.png", Matrix)
 
 
     ### 3
@@ -47,7 +47,7 @@ for x in range(width):
     Matrix[:, x] = intensity       # fill column with that intensity
 
 # Save image
-imageio.imwrite("3_Ramp.png", Matrix)
+imageio.imwrite("A3_Ramp.png", Matrix)
 
 
     ### 4
@@ -59,7 +59,7 @@ I = 255 * np.exp( -( (x - 128)**2 + (y - 128)**2 ) / (200**2) ) #I values are fl
 
 Matrix = np.clip(I, 0, 255).astype(np.uint8)    #And wee need a mATRIX WITH INT IN 8BIT RANGE(0, 255)
 
-imageio.imwrite("4_Gaussian.png", Matrix)
+imageio.imwrite("A4_Gaussian.png", Matrix)
 
 
     ### 5
@@ -72,5 +72,5 @@ Matrix[height//2:height, 0:width//2] = [255, 0, 0] # Lower Left Red = R + 0 + 0
     # Lower Right is already Black, There is no need to change anything in Matrix
 
 #image
-imageio.imwrite("5_Quadrants.png", Matrix)
+imageio.imwrite("A5_Quadrants.png", Matrix)
 
