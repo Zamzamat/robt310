@@ -26,7 +26,7 @@ Matrix = np.full(   (height, width), #matrix dimensions
 imageio.imwrite("1_Gray_104.png", Matrix)
 
 
-    ###2
+    ### 2
 #We already created an Image for the 1st task before, and we can still use the data from previous task
 #We will use the same MAtrix, but replace numbers in it
 
@@ -40,7 +40,7 @@ for x in range(width): #here we take every column
 imageio.imwrite("2_Stripes_BW.png", Matrix)
 
 
-    ###3
+    ### 3
 #We will reuse the same Matrix again:
 for x in range(width):
     intensity = min(x // 2, 255)   # ramp expression
@@ -48,4 +48,16 @@ for x in range(width):
 
 # Save image
 imageio.imwrite("3_Ramp.png", Matrix)
+
+
+    ### 4
+#coordinate grids:                         
+x, y = np.indices((width, height))
+
+#Gaussian Expression:
+I = 255 * np.exp( -( (x - 128)**2 + (y - 128)**2 ) / (200**2) ) #I values are float, not integer
+
+Matrix = np.clip(I, 0, 255).astype(np.uint8)    #And wee need a mATRIX WITH INT IN 8BIT RANGE(0, 255)
+
+imageio.imwrite("4_Gaussian.png", Matrix)
 
